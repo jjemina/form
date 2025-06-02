@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+}
+body{
+ background-color:black;
+}
+#accordion{
+  margin: 100px auto;
+  width: 600px;
+}
+#accordion li{
+    list-style: none;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 2px solid pink;
+    padding: 15px;
+    border-radius: 10px;
+}
+#accordion li label{
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    color:red;
+}
+.content{
+    font-size: 18px ;
+}
+span{
+    color: rgba(204, 220, 220, 0.24);;
+    font-size:25px ;
+}
+span:hover{
+    color: azure;
+}
+#accordion label + input[type="radio"]{
+    display: none;
+}
+#accordion .content{
+    padding: 0 10px;
+    line-height: 25px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+#accordion label + input[type="radio"]:checked +.content{
+    max-height: 400px;
+}
+    </style>
+</head>
+<body>
+    <ul id="accordion">
+        <li style="color:white;">
+            <label for="first">Explain about HTML?<span>+</span></label>
+            <input type="radio" name="accordion" id="first" checked>
+            <div class="content">
+                <p>HTML stands for Hyper Text Markup Language. HTML is the standard markup language for creating Web pages. 
+                    HTML describes the structure of a Web page. HTML consists of a series of elements. HTML elements tell 
+                    the browser how to display the content.
+
+                </p>
+            </div>
+        </li>
+        <li style="color: white;">
+            <label for="second">Explain about CSS?<span>+</span></label>
+            <input type="radio" name="accordion" id="second">
+            <div class="content">
+                <p>CSS is the acronym of “Cascading Style Sheets”. CSS is a computer language for laying out and structuring
+                    web pages (HTML or XML). This language contains coding elements and is composed of these “cascading style 
+                    sheets” which are equally called CSS files.
+                </p>
+            </div>
+        </li>
+        <li style="color:white;">
+            <label for="third">Explain about JS?<span>+</span></label>
+            <input type="radio" name="accordion" id="third">
+            <div class="content">
+                <p>JavaScript, often abbreviated as JS, is a programming language and core technology of the Web, alongside
+                    HTML and CSS. 99% of websites use JavaScript on the client side for webpage behavior. Web browsers have 
+                    a dedicated JavaScript engine that executes the client code.
+
+                </p>
+            </div>
+        </li>
+    </ul>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body {
+            background-color: rgb(222, 193, 212);
+
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h2>FORM</h2>
+    <form id="applicationForm" >
+        <label for="fn">First Name</label>
+        <input type="text" id="firstName">
+        <span id="firstNameError" class="error"></span><br><br>
+        
+        <label for="ln">Last Name</label>
+        <input type="text" id="lastName">
+        <span id="lastNameError" class="error"></span><br><br>
+        
+        <label for="d">Date of Birth</label>
+        <input type="date" id="dob">
+        <span id="dobError" class="error"></span><br><br>
+        
+        <label for="a">Age</label>
+        <input type="number" id="age">
+        <span id="ageError" class="error"></span><br><br>
+        
+        <label for="gen">Gender</label>
+        <select id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <span id="genderError" class="error"></span><br><br>
+        
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email">
+        <span id="emailError" class="error"></span><br><br>
+        
+        <label for="pos">Position Available:</label>
+        <input type="radio" id="junior" name="position" value="Junior">
+        <label for="junior">Junior Developer</label>
+        <input type="radio" id="mid" name="position" value="Mid">
+        <label for="mid">Mid-level Developer</label>
+        <input type="radio" id="senior" name="position" value="Senior">
+        <label for="senior">Senior Developer</label>
+        <span id="positionError" class="error"></span><br><br>
+        
+        <label for="prog">Programming Languages:</label>
+        <input type="checkbox" id="java" name="programming" value="java">
+        <label for="java">Java</label>
+        <input type="checkbox" id="javascript" name="programming" value="javascript">
+        <label for="javascript">JavaScript</label>
+        <input type="checkbox" id="python" name="programming" value="python">
+        <label for="python">Python</label>
+        <span id="programmingError" class="error"></span><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password">
+        <span id="passwordError" class="error"></span><br><br>
+        
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword">
+        <span id="confirmPasswordError" class="error"></span><br><br>
+        
+        <input type="submit" onclick="return validateForm()" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+    
+    <script>
+        function validateForm() {
+            // Get form values
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var dob = document.getElementById('dob').value;
+            var age = document.getElementById('age').value;
+            var gender = document.getElementById('gender').value;
+            var email = document.getElementById('email').value;
+            var position = document.querySelector('input[name="position"]:checked');
+            var programming = document.querySelectorAll('input[name="programming"]:checked');
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // Clear previous error messages
+            document.getElementById('firstNameError').textContent = '';
+            document.getElementById('lastNameError').textContent = '';
+            document.getElementById('dobError').textContent = '';
+            document.getElementById('ageError').textContent = '';
+            document.getElementById('genderError').textContent = '';
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('positionError').textContent = '';
+            document.getElementById('programmingError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+            document.getElementById('confirmPasswordError').textContent = '';
+            
+            var valid = true;
+            
+            
+            if(firstName === ''){
+                document.getElementById('firstNameError').textContent = 'first name is required.';
+                valid = false;
+            }
+            
+            // Validate last name
+            if (lastName === 1||2||3||4||5||6||7||8||9||0) {
+                document.getElementById('lastNameError').textContent = 'Enter the name not a number.';
+                valid = false;
+            }
+            else if(firstName === ''){
+                document.getElementById('firstNameError').textContent = 'last name is required.';
+                valid = false;
+            }
+            
+            // Validate date of birth
+            if (dob === '') {
+                document.getElementById('dobError').textContent = 'Date of birth is required.';
+                valid = false;
+            }
+            
+            // Validate age
+            if (age === '') {
+                document.getElementById('ageError').textContent = 'Age is required.';
+                valid = false;
+            } else if (age < 18 || age > 65) {
+                document.getElementById('ageError').textContent = 'Age must be between 18 and 65.';
+                valid = false;
+            }
+            
+            // Validate gender
+            if (gender === '') {
+                document.getElementById('genderError').textContent = 'Gender is required.';
+                valid = false;
+            }
+            
+            // Validate email
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === '') {
+                document.getElementById('emailError').textContent = 'Email is required.';
+                valid = false;
+            } else if (!emailPattern.test(email)) {
+                document.getElementById('emailError').textContent = 'Invalid email format.';
+                valid = false;
+            }
+            
+            // Validate position
+            if (position === null) {
+                document.getElementById('positionError').textContent = 'Position is required.';
+                valid = false;
+            }
+            
+            // Validate programming languages
+            if (programming.length === 0) {
+                document.getElementById('programmingError').textContent = 'At least one programming language is required.';
+                valid = false;
+            }
+            
+            // Validate password
+            if (password === '') {
+                document.getElementById('passwordError').textContent = 'Password is required.';
+                valid = false;
+            } else if (password.length < 6) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 6 characters long.';
+                valid = false;
+            }
+            
+            // Validate confirm password
+            if (confirmPassword === '') {
+                document.getElementById('confirmPasswordError').textContent = 'Confirm password is required.';
+                valid = false;
+            } else if (password !== confirmPassword) {
+                document.getElementById('confirmPasswordError').textContent = 'Passwords do not match.';
+                valid = false;
+            }
+            
+            return valid;
+        }
+    </script>
+</body>
+</html>
+ 
+
+
+
+
+
+
+
+ 

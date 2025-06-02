@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swap the Image</title>
+    <script>
+        function swap(id, detail) {
+            var elt = document.getElementById(id);
+            elt.src = detail;
+        }
+    </script>
+</head>
+<body>
+    <p>
+        <img id="image" src="new/one.jpg" height="250" width="250"
+        onmouseover="swap('image','new/two.jpg')"
+        onmouseout="swap('image','new/one.jpg')">
+    </p>
+</body>
+</html>

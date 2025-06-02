@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Safety App</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+.header-icons span {
+    margin-left: 10px;
+}
+
+.map-container {
+    flex-grow: 1;
+    width: 100%;
+}
+
+#map {
+    height: 100%;
+}
+
+.info-panel {
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+}
+
+.walk-with-me {
+    margin-bottom: 10px;
+}
+
+.safety-info {
+    display: flex;
+    justify-content: space-around;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-top: 1px solid #ddd;
+}
+
+.nav-button {
+    padding: 8px 15px;
+    border: none;
+    background-color: #e0e0e0;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .safety-info {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Logo</div>
+        <div class="header-icons">
+            <span class="notification">🔔</span>
+            <span class="settings">⚙️</span>
+        </div>
+    </header>
+    <div class="map-container" id="map"></div>
+    <div class="info-panel">
+        <div class="safe-area">
+            <span class="safe-marker">🟢</span> Safe Area
+        </div>
+        <div class="walk-with-me">
+            <h2>Walk With Me</h2>
+            <div class="status">Status: <span id="walkStatus">Inactive</span></div>
+            <button id="startWalking">Start Walking</button>
+            <button id="shareLocation">Share Location</button>
+        </div>
+        <div class="safety-info">
+            <div class="safety-score">
+                <span id="safetyScore">92%</span> Safety Score
+            </div>
+            <div class="nearby-users">
+                <span id="nearbyUsers">15</span> Nearby Users
+            </div>
+        </div>
+        <div class="emergency-contacts">
+            <h3>Emergency Contacts</h3>
+            </div>
+    </div>
+    <nav>
+        <button class="nav-button" id="mapTab">Map</button>
+        <button class="nav-button" id="alertsTab">Alerts</button>
+        <button class="nav-button" id="sosButton">SOS</button>
+        <button class="nav-button" id="profileTab">Profile</button>
+    </nav>
+    <script>// Initialize Leaflet map
+        const map = L.map('map').setView([13.0827, 80.2707], 13); // Chennai coordinates
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+        
+        let walkStatus = document.getElementById('walkStatus');
+        let startWalkingButton = document.getElementById('startWalking');
+        let shareLocationButton = document.getElementById('shareLocation');
+        let safetyScoreDisplay = document.getElementById('safetyScore');
+        let nearbyUsersDisplay = document.getElementById('nearbyUsers');
+        
+        let isWalking = false;
+        let userMarker;
+        
+        startWalkingButton.addEventListener('click', () => {
+            isWalking = !isWalking;
+            walkStatus.textContent = isWalking ? 'Active' : 'Inactive';
+            startWalkingButton.textContent = isWalking ? 'Stop Walking' : 'Start Walking';
+        
+            if (isWalking) {
+                // Get user's location and update map
+                navigator.geolocation.watchPosition(position => {
+                    const { latitude, longitude } = position.coords;
+                    if (userMarker) {
+                        userMarker.setLatLng([latitude, longitude]);
+                    } else {
+                        userMarker = L.marker([latitude, longitude]).addTo(map);
+                    }
+                    map.setView([latitude, longitude]);
+                }, error => {
+                    console.error('Error getting location:', error);
+                });
+            } else {
+                navigator.geolocation.clearWatch();
+            }
+        });
+        
+        shareLocationButton.addEventListener('click', () => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const { latitude, longitude } = position.coords;
+                    alert(`Location shared: Latitude ${latitude}, Longitude ${longitude}`);
+                }, error => {
+                    console.error('Error sharing location:', error);
+                });
+            } else {
+                alert('Geolocation is not supported by this browser.');
+            }
+        });
+        
+        // Simulate safety score and nearby users
+        // In a real app, this would come from a backend API
+        safetyScoreDisplay.textContent = '92%';
+        nearbyUsersDisplay.textContent = '15';
+        
+        // Navigation buttons
+        document.getElementById('alertsTab').addEventListener('click', () => {
+            alert("Alerts Functionality will be implemented in the full version");
+        });
+        document.getElementById('sosButton').addEventListener('click', () => {
+            alert("SOS Functionality will be implemented in the full version");
+        });
+        document.getElementById('profileTab').addEventListener('click', () => {
+            alert("Profile Functionality will be implemented in the full version");
+        });</script>
+</body>
+</html>

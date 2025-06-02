@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+<script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+    }
+    .box{
+        background-color: white;
+        width: 330px;
+        height: 50px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 25px;
+        animation: search 3s  1s infinite ;
+        animation-direction: alternate;
+        position: relative;
+    
+       
+    }
+    @keyframes search{
+        0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:20px; top:0px;}
+  50%  {background-color:blue; left:20px; top:20px;}
+  75%  {background-color:green; left:0px; top:20px;}
+  100% {background-color:red; left:0px; top:0px;}
+    }
+    input{
+        width: 240px;
+        border: none;
+        outline: none;
+        background: none;
+        font-size: 18px;
+    
+        
+    }
+    .fa-solid:hover{
+        color: orangered;
+        cursor: pointer;
+    }
+   
+</style>
+<body>
+    <div class="box">
+        <input type="text" placeholder="Search">
+        <div class="icon">
+        <i class="fa-solid fa-magnifying-glass"></i></div>
+    </div>
+</body>
+</head>

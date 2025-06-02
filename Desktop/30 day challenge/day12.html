@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0 20px;
+            margin:0;
+            
+        }
+        .top{
+            text-align: center;
+            padding:20px;
+        }
+        .t1{
+            text-align: center;
+            padding:20px;
+        }
+        .container{
+            display: flex;
+            flex-direction: row;
+            padding-left:20px;
+            width:80%;
+            margin:auto;
+              
+        }
+        .col1{
+            padding:20px;
+            width:250px;
+            height: 250px;
+            margin:50px;
+           
+            border: 1px solid;
+            text-align: center;
+            list-style-type: none;
+            
+        }
+        .c1{
+            padding:20px;
+            text-align: center;
+        }
+        .col2{
+            padding:10px;
+            margin:50px;
+            width:250px;
+            height: 250px;
+            border: 1px solid;
+            text-align: center;
+            list-style-type: none;
+        }
+        .col3{
+            padding:10px;
+            width:250px;
+            margin:50px;
+            height: 250px;
+            border: 1px solid;
+            text-align: center;
+            list-style-type: none;
+        }
+        .button{
+            width:200px;
+            padding:10px;
+            height: 30px;
+            border: 1px blue;
+            background-color: rgb(21, 85, 223);
+            color: white;
+        }
+        .button1{
+            padding: 10px;
+            width:200px;
+            height: 30px;
+            border:1px solid blue;
+            background-color: white;
+            color:rgb(21, 85, 223);
+        }
+        .span{
+            color:grey;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="top"><h2>Princing</h2></div>
+    <div class="t1"><p>Quikcly build an effective pricing table for your potential customer with this<br>
+        Bootstrap example. Its build with default Bootstrap components and utilities<br>
+        with little customization.
+    </p></div>
+    <div class="container">
+        <div class="col1">
+            <h3>Free</h3>
+            <div class="c1">
+            <h2>$0<span class="span">/mo</span></h2>
+            <li>10users included</li>
+            <li>2GB of storage</li>
+            <li>Email support</li>
+            <li>Help center access</li></div>
+            <div><input type="button" class="button1" value="sign up for free"></div>
+        </div>
+        <div class="col2">
+            <h3>Pro</h3>
+            <div class="c1">
+            <h2>$15<span class="span">/mo</span></h2>   
+            <li>20users included</li>
+            <li>10GB of storage</li>
+            <li>Priority Email support</li>
+            <li>Help center access</li></div>
+            <input type="button"  class="button"  value="Get started">
+        </div>
+        <div class="col3">
+            <h3>Enterprices</h3>
+            <div class="c1">
+            <h2>$29<span class="span">/mo</span></h2>
+            <li>30users included</li>
+            <li>15GB of storage</li>
+            <li>Phone and email support</li>
+            <li>Help center access</li></div>
+            <input type="button" class="button" value="contact us">
+        </div>
+    </div>
+</body>
+</html>

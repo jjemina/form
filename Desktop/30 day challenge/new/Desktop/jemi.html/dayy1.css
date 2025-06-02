@@ -1,0 +1,40 @@
+*{ 
+   padding:0;
+   margin:0;
+   box-sizing: border-box;
+   font-family: 'poppins';
+}
+
+body{
+    min-height: 100vh;
+    background-color: black;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+button{
+    padding: 1em 2em;
+    background-color: black;
+    border-radius: 1rem;
+    font-size: 50px;
+    border:none;
+    color: white;
+    cursor:pointer
+    position:relative;
+    transition:o.3s ease-in-out;
+
+}
+button::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    height: 100%;
+    width:100%;
+    border-radius: 3rem;
+    background-color: linear-gradient(to right,violet,pink,blue);
+}
+button:hover{
+    z-index: 0;
+    box-shadow: 25px # 100px purple, -25px # 100px blue;
+}

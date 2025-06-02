@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropmorphism</title>
+    <style>
+        body{
+            margin-left: 5rem;
+            background-color:whitesmoke;
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            
+        }
+        .drop{
+            position: absolute;
+            height: 60px;
+            width: 60px;
+            margin-left: 500px;
+            align-items: center;
+            border: 2px solid rgb(216, 216, 219);
+            box-shadow: 10px 10px 10px rgba(0,0,0,0.1),
+            inset -10px 10px 10px rgb(216, 216, 219),inset 10px -10px 15px rgba(255,255,255,0.9);
+            border-radius: 50%;
+
+        }
+        .drop:before{
+            content: '';
+            position: absolute;
+            height: 10px;
+            width: 10px;
+            background: #fff;
+            border-radius: 50% 50% 0 50%;
+            left: 30px;
+            top: 10px;
+            box-decoration-break: rgba(255,255,255,0.4);
+            
+        }
+        .drop:after{
+            content: '';
+            position: absolute;
+            height: 7px;
+            width: 7px;
+            background: #fff;
+            border-radius: 50%;
+            left: 43px;
+            top: 23px;
+            box-shadow: 0 0 5px rgba(255,255,255,0.4);
+
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="drop"></div>
+</body>
+</html>

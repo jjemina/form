@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body {
+            background-color: rgb(222, 193, 212);
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h2>APPLICATION FORM</h2>
+    <form id="applicationForm">
+        <label for="fn">First Name</label>
+        <input type="text" id="fn">
+        <span id="fnError" class="error"></span><br><br>
+        
+        <label for="ln">Last Name</label>
+        <input type="text" id="ln">
+        <span id="lnError" class="error"></span><br><br>
+        
+        <label for="d">Date of birth</label>
+        <input type="date" id="d">
+        <span id="dobError" class="error"></span><br><br>
+        
+        <label for="a">Age</label>
+        <input type="number" id="a">
+        <span id="ageError" class="error"></span><br><br>
+        
+        <label for="gen">Gender</label>
+        <select id="gen" name="gender">
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <span id="genderError" class="error"></span><br><br>
+        
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email">
+        <span id="emailError" class="error"></span><br><br>
+        
+        <label for="pos">Position Available:</label>
+        <input type="radio" id="j" name="pos" value="Junior">
+        <label for="j">Junior developer</label>
+        <input type="radio" id="m" name="pos" value="mid">
+        <label for="m">Mid-level developer</label>
+        <input type="radio" id="s" name="pos" value="senior">
+        <label for="s">Senior developer</label>
+        <span id="positionError" class="error"></span><br><br>
+        
+        <label for="prog">Programming languages:</label>
+        <input type="checkbox" id="java" name="pro" value="java">
+        <label for="java">Java</label>
+        <input type="checkbox" id="javas" name="pro" value="javas">
+        <label for="javas">JavaScript</label>
+        <input type="checkbox" id="py" name="pro" value="python">
+        <label for="py">Python</label>
+        <span id="progError" class="error"></span><br><br>
+        
+        <label for="pass">Password:</label>
+        <input type="password" id="pass">
+        <span id="passError" class="error"></span><br><br>
+        
+        <label for="confirmpass">Confirm Password:</label>
+        <input type="password" id="confirmpass">
+        <span id="confirmpassError" class="error"></span><br><br>
+        
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+    
+    <script>
+        document.getElementById('fn').addEventListener('blur', validateFirstName);
+        document.getElementById('ln').addEventListener('blur', validateLastName);
+        document.getElementById('d').addEventListener('blur', validateDOB);
+        document.getElementById('a').addEventListener('blur', validateAge);
+        document.getElementById('gen').addEventListener('blur', validateGender);
+        document.getElementById('email').addEventListener('blur', validateEmail);
+        document.getElementById('pass').addEventListener('blur', validatePassword);
+        document.getElementById('confirmpass').addEventListener('blur', validateConfirmPassword);
+
+        document.getElementById('applicationForm').addEventListener('submit', function(event) {
+            if (!validateForm()) {
+                event.preventDefault(); 
+            }
+        });
+
+        function validateFirstName() {
+            var firstName = document.getElementById('fn').value;
+            var namePattern = /^[a-zA-Z]+$/;
+            if (firstName === '') {
+                document.getElementById('fnError').textContent = 'First name is required.';
+                return false;
+            } else if (!namePattern.test(firstName)) {
+                document.getElementById('fnError').textContent = 'First name cannot contain numbers or special characters.';
+                return false;
+            } else {
+                document.getElementById('fnError').textContent = '';
+                return true;
+            }
+        }
+
+        function validateLastName() {
+            var lastName = document.getElementById('ln').value;
+            if (lastName === '') {
+                document.getElementById('lnError').textContent = 'Last name is required.';
+                return false;
+            }else if (!namePattern.test(lastName)) {
+                document.getElementById('lnError').textContent = 'Last name cannot contain numbers or special characters.';
+                return false;
+            }
+             else {
+                document.getElementById('lnError').textContent = '';
+                return true;
+            }
+        }
+
+        function validateDOB() {
+            var dob = document.getElementById('d').value;
+            if (dob === '') {
+                document.getElementById('dobError').textContent = 'Date of birth is required.';
+                return false;
+            } else {
+                document.getElementById('dobError').textContent = '';
+                return true;
+            }
+        }
+
+        function validateAge() {
+            var age = document.getElementById('a').value;
+            if (age === '') {
+                document.getElementById('ageError').textContent = 'Age is required.';
+                return false;
+            } else if (age < 18 || age > 65) {
+                document.getElementById('ageError').textContent = 'Age must be between 18 and 65.';
+                return false;
+            } else {
+                document.getElementById('ageError').textContent = '';
+                return true;
+            }
+        }
+
+        function validateGender() {
+            var gender = document.getElementById('gen').value;
+            if (gender === '') {
+                document.getElementById('genderError').textContent = 'Gender is required.';
+                return false;
+            } else {
+                document.getElementById('genderError').textContent = '';
+                return true;
+            }
+        }
+
+        function validateEmail() {
+            var email = document.getElementById('email').value;
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === '') {
+                document.getElementById('emailError').textContent = 'Email is required.';
+                return false;
+            } else if (!emailPattern.test(email)) {
+                document.getElementById('emailError').textContent = 'Invalid email format.';
+                return false;
+            } else {
+                document.getElementById('emailError').textContent = '';
+                return true;
+            }
+        }
+
+        function validatePassword() {
+            var password = document.getElementById('pass').value;
+            if (password === '') {
+                document.getElementById('passError').textContent = 'Password is required.';
+                return false;
+            } else if (password.length < 6) {
+                document.getElementById('passError').textContent = 'Password must be at least 6 characters long.';
+                return false;
+            } else {
+                document.getElementById('passError').textContent = '';
+                return true;
+            }
+        }
+
+        function validateConfirmPassword() {
+            var password = document.getElementById('pass').value;
+            var confirmPassword = document.getElementById('confirmpass').value;
+            if (confirmPassword === '') {
+                document.getElementById('confirmpassError').textContent = 'Confirm password is required.';
+                return false;
+            } else if (password !== confirmPassword) {
+                document.getElementById('confirmpassError').textContent = 'Passwords do not match.';
+                return false;
+            } else {
+                document.getElementById('confirmpassError').textContent = '';
+                return true;
+            }
+        }
+
+        function validateForm() {
+            var isValid = true;
+            isValid &= validateFirstName();
+            isValid &= validateLastName();
+            isValid &= validateDOB();
+            isValid &= validateAge();
+            isValid &= validateGender();
+            isValid &= validateEmail();
+            isValid &= validatePassword();
+            isValid &= validateConfirmPassword();
+            return !!isValid;
+        }
+    </script>
+</body>
+</html>

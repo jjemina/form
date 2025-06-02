@@ -1,0 +1,31 @@
+.intro p{
+    color:rgb(1, 5, 12);
+    background-color:aqua ;
+}
+
+.selector a:hover{
+    color: black;
+    background-color: chocolate;
+}
+#games li:first-child {
+    color: gold;
+    background-color:skyblue;
+}    
+.container>.highlight {
+    color:blueviolet;
+    font-style: italic;
+}
+.joe>section:last-child {
+    color: red;
+    font-weight: bold;
+}
+body{
+    background-color: bisque;
+}
+.row1 td{
+
+    color: violet;
+}
+.row2 td{
+     color:palevioletred;
+}

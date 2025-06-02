@@ -1,0 +1,138 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    <h3><center>General Admission Registeration</center></h3>
+    <form action="bb">
+        <label for="text-input">Name</label>
+        <input type="text" placeholder="first name">  <input type="text" placeholder="last name"><br><br>
+
+        <label for="text-input">Email</label>
+        <input type="text" placeholder="sample@example.com"><br><br>
+
+        <label for="radio-input">Gender</label>
+        <input type="radio" value="Male">Male  <input type="radio" value="Female">Female <br><br>
+
+        <label for="number-input">Phone</label>
+        <input type="number"><br><br>
+
+        <label for="number-input">Emergency Contact</label><br>
+        <input type="number"><br><br>
+
+        <label for="radio-input">Do you require parking?</label><br>
+        <input type="radio" value="yes" name="question"> Yes  <input type="radio" value="No" name="question"> No <br><br>
+
+         <label for="radio-input">What is your room preference?</label><br>
+         <input type="radio" value="Single Room">Single Room <br>
+         <input type="radio" value="Shared Room">Shared Room <br>
+         <input type="radio" value="No Room Needed">No Room Needed <br><br>
+
+         <label for="radio-input">Do you have dietary restrictions?</label><br>
+         <input type="radio" value="None">None <br>
+         <input type="radio" value="Vegetarian"> Vegetarian <br>
+         <input type="radio" value="Glutten Allergy">Glutten Allery <br>
+         <input type="radio" value="Lactose Allergy"> Lactose Allergy <br>
+         <input type="radio" value="Nut Allergy"> Nut Allergy <br>
+         <input type="radio" value="Shellfish Allergy"> Shellfish Allergy <br><br>
+         
+         <label for="radio">What activities will you attend?</label><br>
+          <input type="radio" value="Awards Gala Dinner">Awards Gala Dinner <br>
+          <input type="radio" value="Luncheon"> Luncheon <br>
+          <input type="radio" value="Town Hall">Town Hall <br><br>
+
+          <label for="radio">Do you want to see the list of other attendees and their profiles on the official event app?</label><br>
+          <input type="radio" value="Yes"> Yes <br>
+          <input type="radio" value="No"> No
+          
+    </form>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+    .error {
+        color: red;
+        font-size: 12px;
+    }
+    </style>
+</head>
+<body>
+    <form id="myForm" onsubmit="return validateForm()">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <span id="nameError" class="error"></span>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email">
+            <span id="emailError" class="error"></span>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <span id="passwordError" class="error"></span>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    <script>
+        function validateForm() {
+    // Get the form elements
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    
+    // Clear previous error messages
+    document.getElementById("nameError").textContent = "";
+    document.getElementById("emailError").textContent = "";
+    document.getElementById("passwordError").textContent = "";
+    
+    var valid = true;
+
+    // Validate name
+    if (name === "") {
+        document.getElementById("nameError").textContent = "Name is required.";
+        valid = false;
+    }
+
+    // Validate email
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email === "") {
+        document.getElementById("emailError").textContent = "Email is required.";
+        valid = false;
+    } else if (!emailPattern.test(email)) {
+        document.getElementById("emailError").textContent = "Invalid email format.";
+        valid = false;
+    }
+
+    // Validate password
+    if (password === "") {
+        document.getElementById("passwordError").textContent = "Password is required.";
+        valid = false;
+    } else if (password.length < 6) {
+        document.getElementById("passwordError").textContent = "Password must be at least 6 characters long.";
+        valid = false;
+    }
+
+    return valid;
+}
+
+    </script>
+</body>
+</html>

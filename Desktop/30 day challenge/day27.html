@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        background: grey;
+}
+
+.split-image-container {
+  display: flex;
+}
+
+.split-image-container .split-image {
+  width: 320px;
+  height: 427px;
+  background: url(https://wallpaperaccess.com/full/1470792.jpg) no-repeat;
+  background-size: cover;
+  transition: all 400ms ease;
+}
+
+.split-image-container .split-image:nth-child(2) {
+  background-position-x: -320px;
+}
+
+.split-image-container:hover .split-image {
+  margin: 0 24px;
+  transform: scale(1.08) rotateZ(3deg);
+  box-shadow: 0 5px 40px -24px #00ffdd;
+}
+    </style>
+  </head>
+  <body>
+    <div class="split-image-container">
+      <span class="split-image"></span>
+      <span class="split-image"></span>
+    </div>
+  </body>
+</html>

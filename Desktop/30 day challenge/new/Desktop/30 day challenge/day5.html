@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social media icons</title>
+    <link rel="stylesheet" href= https://use.fontawesome.com/releases/v5.6.3/css/all.css>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background:powderblue;
+        }
+        .content{
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+        }
+        .icon{
+            display: inline-block;
+            width: 90px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .icon i{
+            font-size: 40px;
+            display: block;
+            text-align: center;
+        }
+        .icon span{
+            display: block;
+            width: 90px;
+            text-align: center;
+            padding: 9px 0;
+            color: white;
+            border-radius: 3px;
+            position: absolute;
+            top:-47px;
+            font-size: 15px;
+            opacity: 0;
+            transition: .3s opacity ease-in;
+
+        }
+        .icon span:before{
+            content: '';
+            position: absolute;
+            height: 15px;
+            width: 15px;
+            top:30px;
+            left: 50px;
+            z-index: -1;
+            transform:translateX(-50%) rotate(45deg);
+                }
+                .icon span.fb, .icon span.fb:before{
+                    background: blue;
+                }
+                .icon span.you, .icon span.you:before{
+                    background: red;
+                }
+                .icon span.snap, .icon span.snap:before{
+                    background: yellow;
+                }
+                .icon span.what, .icon span.what:before{
+                    background: green;
+                }
+                i.fa-facebook-square{color:blue ;}
+                i.fa-youtube-square{color:red ;}
+                i.fa-snapchat-square{color:yellow ;}
+                i.fa-whatsapp-square{color:green ;}
+                .icon:hover>span{
+                    opacity: 1;
+                }
+
+    </style>
+</head>
+
+
+<body>
+    <div class="content">
+        <div class="icon">
+            <span class="fb">Facebook</span>
+            <i class="fab fa-facebook-square"></i>
+        </div>
+        <div class="icon">
+            <span class="you">Youtube</span>
+            <i class="fab fa-youtube-square"></i>
+        </div>
+        <div class="icon">
+            <span class="snap">Snap chat</span>
+            <i class="fab fa-snapchat-square"></i>
+        </div>
+        <div class="icon">
+            <span class="what">Whatsapp</span>
+            <i class="fab fa-whatsapp-square"></i>
+        </div>
+    </div>
+</body>
+</html>

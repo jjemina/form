@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Button</title>
+    
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .content{
+            width: 240vh;
+            height:100vh;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+           
+
+        }
+        .button{
+            background-color:black;
+            width: 100px;
+            height: 48px;
+            border-radius: 50px;
+            cursor: pointer;
+            transform: 0.2s;
+        }
+        .button:before{
+            position: absolute;
+            content: '';
+            background-color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 55px;
+        
+            margin: 2px;
+            transform: 0.2s;
+
+        }
+        h1{
+            font-size: 36px;
+            margin: -3px;
+           
+        }
+        
+    
+        
+        input:checked +.button{
+           background-color:black;
+            box-shadow: 0 0 1px white,0 0 1px white,0 0 26px white,0 0 26px white;
+        }
+        input:checked +.button::before{
+            transform: translate(50px);
+        }
+        input{
+            display: none;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="content">
+        <input type="checkbox" id="check">
+        <label for="check" class="button"></label>
+      
+    </div>
+</body>
+</html>

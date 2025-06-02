@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        .row{
+            width:100%;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 10px;
+        }
+        .col,.col1{
+            width: 25%;
+            margin: 20px;
+            height: 250px;
+            border:1px solid;
+            border-radius: 10px;
+
+        }
+        .img{
+            text-align: center;
+            color: aliceblue;
+            position: relative;
+
+        }
+        
+        .img img{
+            width: 100%;
+            height: 100%;
+            color:white;
+            border-radius: 10px;
+        }
+        .content{
+            position: absolute; 
+            bottom: 0;
+            left:0;
+            right: 0;
+            background-color: rgb(236, 215, 190);
+            color: black;
+            border-radius: 10px;
+            visibility: hidden;
+
+        }
+        .img:hover .content{
+            visibility: visible;
+            transition: all 2s linear;
+
+        }
+        @media(max-width:768px){
+            .row{
+                flex-wrap: wrap;
+                gap:260px;
+            }
+            .col,.col1{
+                width: 100%;
+            }
+            .img{
+                width: 100%;
+            }
+            .content{
+                width: 100%;
+            }
+            .img:hover .content{
+            visibility: visible;
+            transition: all 2s linear;
+
+        }
+        }
+        
+    </style>
+    
+</head>
+<body>
+        <div class="row">
+            <div class="col">
+                <div class="img"> 
+                    <img src="czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGYtczczLXBhaS0xNTgta2FuYXRlLTAxLW1vY2t1cF8xLmpwZw.webp">
+                    <div class="content">
+                        <h2>Product Name</h2>
+                            <p>$90.00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col1">
+                <div class="img"> 
+                    <img src="product.jpeg">
+                    <div class="content">
+                        <h2>Product Name</h2>
+                        <div class="star"><i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i></div>
+                            <p>$90.00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col1">
+                <div class="img"> 
+                    <img src="product1.jpeg">
+                    <div class="content">
+                        <h2>Product Name</h2>
+                        <div class="star"><i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i></div>
+                            <p>$90.00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col1">
+                <div class="img"> 
+                    <img src="cam.jpeg">
+                    <div class="content">
+                        <h2>Product Name</h2>
+                        <div class="star"><i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i></div>
+                            <p>$90.00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col1">
+                <div class="img"> 
+                    <img src="desk-593327_1280.jpg">
+                    <div class="content">
+                        <h2>Product Name</h2>
+                        <div class="star"><i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i></div>
+                            <p>$90.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+</html>
